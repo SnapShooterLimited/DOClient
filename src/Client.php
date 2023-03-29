@@ -27,6 +27,7 @@ use DigitalOceanV2\Api\Firewall;
 use DigitalOceanV2\Api\FloatingIp;
 use DigitalOceanV2\Api\Image;
 use DigitalOceanV2\Api\Key;
+use DigitalOceanV2\Api\KubernetesCluster;
 use DigitalOceanV2\Api\LoadBalancer;
 use DigitalOceanV2\Api\Monitoring;
 use DigitalOceanV2\Api\ProjectResource;
@@ -215,6 +216,14 @@ class Client
     public function key(): Key
     {
         return new Key($this);
+    }
+
+    /**
+     * @return KubernetesCluster
+     */
+    public function kubernetes(): KubernetesCluster
+    {
+        return new KubernetesCluster($this);
     }
 
     /**
