@@ -16,6 +16,7 @@ namespace DigitalOceanV2\Api;
 
 use DigitalOceanV2\Entity\KubernetesCluster as KubernetesClusterEntity;
 
+use DigitalOceanV2\Entity\KubernetesClusterAssosicatedResources;
 use DigitalOceanV2\Exception\ExceptionInterface;
 
 /**
@@ -58,11 +59,17 @@ class KubernetesCluster extends AbstractApi
      *
      * @return string
      */
-    public function getClusterJuberconfigById(string $id)
+    public function getClusterKubeConfigById(string $id)
     {
         $cluster = $this->get(\sprintf('kubernetes/clusters/%s/kubeconfig', $id));
 
         return $cluster->kubeconfig;
+    }
+    public function getAssociatedResourcesById(string $id)
+    {
+        $resources = $this->get(\sprintf('kubernetes/clusters/%s/destroy_with_associated_resources', $id));
+
+        return new KubernetesClusterAssosicatedResources($resources);
     }
 
 }
