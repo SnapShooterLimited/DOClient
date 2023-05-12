@@ -61,9 +61,9 @@ class KubernetesCluster extends AbstractApi
      */
     public function getClusterKubeConfigById(string $id)
     {
-        $cluster = $this->get(\sprintf('kubernetes/clusters/%s/kubeconfig', $id));
+        $kubeconfig = $this->getRaw(\sprintf('kubernetes/clusters/%s/kubeconfig', $id));
 
-        return $cluster->kubeconfig;
+        return $kubeconfig;
     }
     public function getAssociatedResourcesById(string $id)
     {

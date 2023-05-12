@@ -93,6 +93,13 @@ abstract class AbstractApi
         return ResponseMediator::getContent($response);
     }
 
+    protected function getRaw(string $uri, array $params = [], array $headers = []): string
+    {
+        $response = $this->client->getHttpClient()->get(self::prepareUri($uri, $params), $headers);
+
+        return $response->getBody()->getContents();
+    }
+
     /**
      * Send a POST request with JSON-encoded params.
      *
