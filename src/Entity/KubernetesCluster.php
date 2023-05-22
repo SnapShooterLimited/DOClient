@@ -54,6 +54,11 @@ final class KubernetesCluster extends AbstractEntity
      */
     public $tags  = [];
 
+    /**
+     * @var array
+     */
+    public $nodePools = [];
+
 
     /**
      * @param string $createdAt
