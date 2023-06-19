@@ -39,6 +39,10 @@ class Database extends AbstractApi
     {
         $clusters = $this->get('databases', null === $tag ? [] : ['tag_name' => $tag]);
 
+        if($clusters->databases === null) {
+            return [];
+        }
+        
         return \array_map(function ($cluster) {
             return new DatabaseClusterEntity($cluster);
         }, $clusters->databases);
