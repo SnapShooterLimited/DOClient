@@ -54,4 +54,9 @@ final class Account extends AbstractEntity
      * @var string
      */
     public $statusMessage;
+
+    /**
+     * @var array
+     */
+    public $team;
 }
