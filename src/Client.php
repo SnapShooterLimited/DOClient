@@ -36,6 +36,7 @@ use DigitalOceanV2\Api\Size;
 use DigitalOceanV2\Api\Snapshot;
 use DigitalOceanV2\Api\Tag;
 use DigitalOceanV2\Api\Volume;
+use DigitalOceanV2\Api\Vpc;
 use DigitalOceanV2\Api\VpcNatGateway;
 use DigitalOceanV2\HttpClient\Builder;
 use DigitalOceanV2\HttpClient\Message\ResponseMediator;
@@ -289,6 +290,14 @@ class Client
     public function volume(): Volume
     {
         return new Volume($this);
+    }
+
+    /**
+     * @return Vpc
+     */
+    public function vpc(): Vpc
+    {
+        return new Vpc($this);
     }
 
     /**
